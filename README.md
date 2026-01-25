@@ -4,7 +4,7 @@ Showcase your chess.com profile as a widget in your GitHub home page and/or in y
 
 ## Sample widget
 
-![chess.com-profile-widget](http://chess-com-profile-widget.onrender.com/your-username)
+![chess.com-profile-widget](http://chess-com-profile-widget.onrender.com/1234bb63)
 
 
 ## How to use
