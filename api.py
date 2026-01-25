@@ -20,6 +20,7 @@ def index(username):
     profile_body = profile_resp.json()
     avatar_url = profile_body.get("avatar")
     profile_url = profile_body["url"]
+    title = profile_body.get("title")
     country_url = profile_body["country"]
     country_code = country_url.split("/")[-1]
     last_online = profile_body["last_online"]
@@ -44,6 +45,7 @@ def index(username):
         country_code=country_code,
         username=username,
         league=league,
+        title=title,
         joined=joined_month_year,
         last_seen=last_online_formatted,
         rapid_stats=rapid_stats,
