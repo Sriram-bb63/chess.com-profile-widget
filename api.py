@@ -1,11 +1,12 @@
 from flask import Flask, Response, g
+import logging
 from constants_and_b64_assets import *
 from utils import *
 import time
 from http_client import timed_get
 
 app = Flask(__name__)
-
+app.logger.setLevel(logging.INFO)
 
 @app.before_request
 def _start():
@@ -65,7 +66,7 @@ def index(username):
         blitz_stats=blitz_stats,
         bullet_stats=bullet_stats,
     )
-    
+
     return Response(
         svg,
         mimetype="image/svg+xml",
