@@ -5,7 +5,7 @@ Showcase your chess.com profile as a widget in your GitHub home page and/or in y
 ## Sample widget
 
 <p align="center">
-  <img src="http://127.0.0.1:5000/1234bb63" />
+  <img src="http://chess-com-profile-widget.onrender.com/hikaru" />
 </p>
 
 
@@ -14,17 +14,17 @@ Showcase your chess.com profile as a widget in your GitHub home page and/or in y
 ### Embed as a widget in a ``*.md`` file
 
 ```md
-![chess.com-profile-widget](http://url/your-username)
+![chess.com-profile-widget](http://chess-com-profile-widget.onrender.com/your-username)
 ```
 or
 ```md
-<p align="center"> <img src="http://url/your-username" /> </p>
+<p align="center"> <img src="http://chess-com-profile-widget.onrender.com/your-username" /> </p>
 ```
 
 ### Embed in a ``*.html`` file
 
 ```html
-<img src="http://url/your-username"/>
+<img src="http://chess-com-profile-widget.onrender.com/your-username"/>
 ```
 
 > You can also use ``iframe`` / ``div`` / ``embed`` tags if you prefer
