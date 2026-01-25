@@ -3,6 +3,7 @@ import datetime
 import copy
 import requests
 import base64
+from http_client import timed_get
 
 
 def validate_username(username):
@@ -52,7 +53,7 @@ def normalize_stats(stats):
 
 
 def generate_avatar_png_b64(avatar_url):
-    avatar_resp = requests.get(avatar_url)
+    avatar_resp = timed_get(avatar_url)
     return f"""data:image/png;base64,{base64.b64encode(avatar_resp.content).decode("utf-8")}"""
 
 
@@ -69,6 +70,7 @@ def generate_svg(
     blitz_stats,
     bullet_stats,
 ):
+    # TODO max char len is 25. What if it overshoots?
     background_svg = (
         """<rect width="400" height="265" fill="#302e2b" rx="12" ry="12" />"""
     )

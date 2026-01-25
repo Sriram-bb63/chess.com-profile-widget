@@ -1,9 +1,22 @@
-from flask import Flask, Response
-import requests
+from flask import Flask, Response, g
 from constants_and_b64_assets import *
 from utils import *
+import time
+from http_client import timed_get
 
 app = Flask(__name__)
+
+
+@app.before_request
+def _start():
+    g.t0 = time.perf_counter()
+
+
+@app.after_request
+def _end(resp):
+    dur = time.perf_counter() - g.t0
+    app.logger.info(f"total_time_ms={dur*1000:.1f}")
+    return resp
 
 
 @app.route("/<username>")
@@ -14,7 +27,7 @@ def index(username):
 
     # Profile
     profile_url = f"{BASE_URL}/pub/player/{username}"
-    profile_resp = requests.get(profile_url, headers=HEADERS)
+    profile_resp = timed_get(profile_url, headers=HEADERS)
     if profile_resp.status_code != 200:
         return {"error": "Could not fetch profile data from chess.com"}, 404
     profile_body = profile_resp.json()
@@ -31,7 +44,7 @@ def index(username):
 
     # Stats
     stats_url = f"{BASE_URL}/pub/player/{username}/stats"
-    stats_resp = requests.get(stats_url, headers=HEADERS)
+    stats_resp = timed_get(stats_url, headers=HEADERS)
     if stats_resp.status_code != 200:
         return {"error": "Could not fetch stats data from chess.com"}, 404
     stats_body = stats_resp.json()
@@ -52,7 +65,7 @@ def index(username):
         blitz_stats=blitz_stats,
         bullet_stats=bullet_stats,
     )
-
+    
     return Response(
         svg,
         mimetype="image/svg+xml",
@@ -65,4 +78,4 @@ def index(username):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
