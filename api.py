@@ -28,7 +28,7 @@ def _end(resp):
 
 @app.route("/health")
 def health():
-    return {"status", "ok"}
+    return {"status": "ok"}
 
 
 @app.route("/<username>")
