@@ -2,15 +2,17 @@ import logging
 import time
 
 from flask import Flask, Response, g
-import logging
+
+from cache import cache
 from constants_and_b64_assets import *
 from http_client import *
 from utils import *
-import time
-from http_client import timed_get
 
 app = Flask(__name__)
+app.config["CACHE_TYPE"] = "SimpleCache"
+cache.init_app(app)
 app.logger.setLevel(logging.INFO)
+
 
 @app.before_request
 def _start():
@@ -31,8 +33,7 @@ def index(username):
         return {"error": "Invalid username"}, 400
 
     # Profile
-    profile_url = f"{BASE_URL}/pub/player/{username}"
-    profile_resp = timed_get(profile_url, headers=HEADERS)
+    profile_resp = get_profile_data(username=username)
     if profile_resp.status_code != 200:
         return {"error": "Could not fetch profile data from chess.com"}, 404
     profile_body = profile_resp.json()
@@ -48,8 +49,7 @@ def index(username):
     league = profile_body.get("league")
 
     # Stats
-    stats_url = f"{BASE_URL}/pub/player/{username}/stats"
-    stats_resp = timed_get(stats_url, headers=HEADERS)
+    stats_resp = get_player_stats(username=username)
     if stats_resp.status_code != 200:
         return {"error": "Could not fetch stats data from chess.com"}, 404
     stats_body = stats_resp.json()

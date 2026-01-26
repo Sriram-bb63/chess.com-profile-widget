@@ -1,13 +1,28 @@
-from constants_and_b64_assets import *
-import datetime
-import copy
-import requests
 import base64
+import copy
+import datetime
+
+from cache import cache
+from constants_and_b64_assets import *
 from http_client import timed_get
 
 
 def validate_username(username):
     return bool(USERNAME_REGEX.fullmatch(username))
+
+
+@cache.memoize(timeout=CACHE_LONG_TTL)
+def get_profile_data(username):
+    profile_url = f"{BASE_URL}/pub/player/{username}"
+    profile_resp = timed_get(profile_url, headers=HEADERS)
+    return profile_resp
+
+
+@cache.memoize(timeout=CACHE_SHORT_TTL)
+def get_player_stats(username):
+    stats_url = f"{BASE_URL}/pub/player/{username}/stats"
+    stats_resp = timed_get(stats_url, headers=HEADERS)
+    return stats_resp
 
 
 def convert_epoch_to_month_year(timestamp):
@@ -52,6 +67,7 @@ def normalize_stats(stats):
     return normalized_stats
 
 
+@cache.memoize(timeout=CACHE_LONG_TTL)
 def generate_avatar_png_b64(avatar_url):
     avatar_resp = timed_get(avatar_url)
     return f"""data:image/png;base64,{base64.b64encode(avatar_resp.content).decode("utf-8")}"""
