@@ -3,10 +3,10 @@ import time
 
 from flask import Flask, Response, g, request
 
-from cache import cache
-from constants_and_b64_assets import *
-from http_client import *
-from utils import *
+from .cache import cache
+from .constants_and_b64_assets import *
+from .http_client import *
+from .utils import *
 
 app = Flask(__name__)
 app.config["CACHE_TYPE"] = "SimpleCache"
