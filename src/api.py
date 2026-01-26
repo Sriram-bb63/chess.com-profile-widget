@@ -1,7 +1,7 @@
 import logging
 import time
 
-from flask import Flask, Response, g
+from flask import Flask, Response, g, request
 
 from cache import cache
 from constants_and_b64_assets import *
@@ -31,8 +31,11 @@ def health():
     return {"status": "ok"}
 
 
-@app.route("/<username>")
-def index(username):
+@app.route("/widget")
+def get_widget():
+
+    username = request.args.get("username", "")
+    theme = request.args.get("theme", "")
 
     if not validate_username(username=username):
         return {"error": "Invalid username"}, 400
@@ -74,6 +77,7 @@ def index(username):
         rapid_stats=rapid_stats,
         blitz_stats=blitz_stats,
         bullet_stats=bullet_stats,
+        theme=theme
     )
 
     return Response(

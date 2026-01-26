@@ -308,3 +308,46 @@ TITLES_SVG_B64 = {
     "CM": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTc1IiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxyZWN0IHdpZHRoPSIxNzUiIGhlaWdodD0iMTAwIiByeD0iMTAiIHJ5PSIxMCIgZmlsbD0iIzczMzAyYyIvPgogICAgPHRleHQgeD0iMTAiIHk9Ijg1IiBmaWxsPSIjZDFkNWRiIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAwIj5DTTwvdGV4dD4KPC9zdmc+",
     "WCM": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjcwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxyZWN0IHdpZHRoPSIyNzAiIGhlaWdodD0iMTAwIiByeD0iMTAiIHJ5PSIxMCIgZmlsbD0iIzczMzAyYyIvPgogICAgPHRleHQgeD0iMTAiIHk9Ijg1IiBmaWxsPSIjZDFkNWRiIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAwIj5XQ008L3RleHQ+Cjwvc3ZnPg==",
 }
+
+THEMES = {
+    "default": {
+        "bg": "#302e2b",
+        "fg": "#262522",
+        "text-bright": "#ffffff",
+        "text-mid": "#d1d5db",
+        "text-light": "#9ca3af",
+        "win": "#22c55e",
+        "draw": "#6b7280",
+        "loss": "#ef4444",
+    },
+    "black": {
+        "bg": "#000000",
+        "fg": "#262522",
+        "text-bright": "#ffffff",
+        "text-mid": "#d1d5db",
+        "text-light": "#9ca3af",
+        "win": "#22c55e",
+        "draw": "#6b7280",
+        "loss": "#ef4444",
+    },
+    "github-dark": {
+        "bg": "#05080c",
+        "fg": "#161920",
+        "text-bright": "#ffffff",
+        "text-mid": "#d1d5db",
+        "text-light": "#9ca3af",
+        "win": "#22c55e",
+        "draw": "#6b7280",
+        "loss": "#ef4444",
+    },
+    "blues": {
+        "bg": "#466e98",
+        "fg": "#395a7b",
+        "text-bright": "#ffffff",
+        "text-mid": "#9eb6ce",
+        "text-light": "#9da6b7",
+        "win": "#22c55e",
+        "draw": "#808999",
+        "loss": "#ef4444",
+    }
+}
