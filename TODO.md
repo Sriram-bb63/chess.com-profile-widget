@@ -1,6 +1,7 @@
 # TODO
 
-- [ ] Cache
+- [x] Cache
 - [ ] Themes
 - [ ] Layouts
-- [ ] Timeouts
+- [x] Timeouts
+- [x] Health

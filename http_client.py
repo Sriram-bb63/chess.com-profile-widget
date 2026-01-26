@@ -7,7 +7,7 @@ from flask import current_app
 def timed_get(url, **kwargs):
     start = time.perf_counter()
 
-    # kwargs.setdefault("timeout", 2.5)
+    kwargs.setdefault("timeout", 2)
     resp = requests.get(url, **kwargs)
 
     duration = (time.perf_counter() - start) * 1000

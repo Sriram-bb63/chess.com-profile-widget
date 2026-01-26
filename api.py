@@ -26,6 +26,11 @@ def _end(resp):
     return resp
 
 
+@app.route("/health")
+def health():
+    return {"status", "ok"}
+
+
 @app.route("/<username>")
 def index(username):
 
@@ -83,4 +88,4 @@ def index(username):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
