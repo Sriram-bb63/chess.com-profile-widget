@@ -1,6 +1,6 @@
 # chess.com-profile-widget
 
-Showcase your chess.com profile as a widget in your GitHub home page and/or in your portfolio, blogs, social media etc
+Showcase your chess.com profile as a widget in your GitHub home page and/or in your portfolio, blogs, social media etc. You can practically use it anywhere since it is a fully self contained SVG.
 
 ## Sample widgets
 
