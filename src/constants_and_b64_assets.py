@@ -349,5 +349,31 @@ THEMES = {
         "win": "#22c55e",
         "draw": "#808999",
         "loss": "#ef4444",
-    }
+    },
 }
+
+ARIAL_CHAR_WIDTH = {
+    # Wide characters
+    "W": 1.15,
+    "M": 1.10,
+    # Narrow characters
+    "i": 0.35,
+    "l": 0.38,
+    "I": 0.40,
+    "j": 0.40,
+    "t": 0.45,
+    "f": 0.45,
+    # Digits
+    "1": 0.45,
+    "0": 0.70,
+    # Symbols
+    ".": 0.30,
+    ",": 0.30,
+    ":": 0.30,
+    "-": 0.45,
+    "_": 0.55,
+    # Ellipsis
+    "…": 0.60,
+}
+
+ARIAL_DFAULT_CHAR_WIDTH = 0.65
