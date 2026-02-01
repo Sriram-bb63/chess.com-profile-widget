@@ -36,6 +36,8 @@ def get_widget():
 
     username = request.args.get("username", "")
     theme = request.args.get("theme", "")
+    logo = request.args.get("logo", False)
+    logo_bool = True if logo == "true" else False
 
     if not validate_username(username=username):
         return {"error": "Invalid username"}, 400
@@ -77,7 +79,8 @@ def get_widget():
         rapid_stats=rapid_stats,
         blitz_stats=blitz_stats,
         bullet_stats=bullet_stats,
-        theme=theme
+        theme=theme,
+        platform_logo=logo_bool
     )
 
     return Response(

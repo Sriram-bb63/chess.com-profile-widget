@@ -31,6 +31,12 @@ or
 
 > You can also use ``iframe`` / ``div`` / ``embed`` tags if you prefer
 
+### URL parameters
+
+1. `username` *required* - Your Chess.com username
+2. `theme` *optional* - Any of the themes listed below. If a theme could not be found, the default theme is used
+3. `logo` *optional* - `true` to display a footer section with the Chess.com logo. Default value is `false`
+
 
 ### Available themes
 

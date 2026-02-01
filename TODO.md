@@ -11,3 +11,4 @@
 - [x] Handle long usernames like 'longestusernameinchessofc', 'WWWWWWWWWWWWWWWWWWWW'
 - [ ] Discord?
 - [ ] Custom themes
+- [x] Platform logo

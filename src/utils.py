@@ -113,10 +113,13 @@ def generate_svg(
     blitz_stats,
     bullet_stats,
     theme,
+    platform_logo
 ):
     if theme not in THEMES.keys():
         theme = "default"
     colors = THEMES[theme]
+    footer_section = f"""<rect y="30" width="400" height="265" fill="{colors['fg']}" rx="12" ry="12"/>""" if platform_logo else ""
+    platform_logo = f"""<image href="{CHESS_DOT_COM_LOGO}" height="20" x="11" y="269"/>""" if platform_logo else ""
     background_svg = (
         f"""<rect width="400" height="265" fill="{colors["bg"]}" rx="12" ry="12" />"""
     )
@@ -146,6 +149,8 @@ def generate_svg(
     svg = "".join(
         [
             """<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">""",
+            footer_section,
+            platform_logo,
             background_svg,
             avatar_svg,
             flag_svg,
