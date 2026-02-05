@@ -40,6 +40,8 @@ or
 
 ### Available themes
 
+_Widgets may fail to load due to server side cache invalidation. Please refresh the page to render all examples_
+
 **default**
 
 ![theme:default](https://chess-com-profile-widget.onrender.com/widget?username=gothamchess&theme=default)
